@@ -16,23 +16,13 @@ if %errorlevel% neq 0 (
   exit /b 1
 )
 
-echo [1/4] Установка зависимостей проекта...
+echo [1/3] Установка зависимостей проекта...
 call npm install
 if %errorlevel% neq 0 goto :error
 
 echo.
-echo [2/4] Подготовка сборщика Electron для Windows...
-call npm install -D electron electron-builder
-if %errorlevel% neq 0 goto :error
-
-echo.
-echo [3/4] Сборка интерфейса приложения...
-call npm run build
-if %errorlevel% neq 0 goto :error
-
-echo.
-echo [4/4] Создание .exe файла (установщик + портативный файл)...
-call npx electron-builder --config electron-builder.json --win
+echo [2/3] Сборка интерфейса и создание .exe файлов...
+call npm run build:windows
 if %errorlevel% neq 0 goto :error
 
 echo.
