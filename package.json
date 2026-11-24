@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "vite build",
-    "build:windows": "npm run build && electron-builder --config electron-builder.json --win",
-    "desktop:package": "electron-builder --config electron-builder.json --win",
+    "build:windows": "npm run build && electron-builder --config electron-builder.json --win --publish never",
+    "desktop:package": "electron-builder --config electron-builder.json --win --publish never",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit"
